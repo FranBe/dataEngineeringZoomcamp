@@ -9,3 +9,5 @@ ny_taxi_postgres_data/
 # CSV files
 
 *.csv
+
+gcp-terraform/
