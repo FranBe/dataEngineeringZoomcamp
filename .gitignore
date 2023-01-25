@@ -10,4 +10,4 @@ ny_taxi_postgres_data/
 
 *.csv
 
-gcp-terraform/
+week1/gcp-terraform/
