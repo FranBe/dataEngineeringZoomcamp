@@ -1,0 +1,73 @@
+______________________________
+
+Question 1
+
+The answer can be obtained by filtering uusing grep in Linux terminal, with the string specified:
+
+Answer: --iidfile string
+____________________________
+
+Question 2
+
+Answer: 3 (including pip)
+
+_______________________________
+
+Question 3:
+
+select count(*) 
+from green_taxi_trips 
+where lpep_dropoff_datetime::date = date '2019-01-15' 
+and lpep_pickup_datetime::date = date '2019-01-15';
+
+Answer: 20530
+
+________________________________
+
+Question 4:
+
+select lpep_dropoff_datetime::date, lpep_pickup_datetime::date
+from green_taxi_trips
+where trip_distance = (select max(trip_distance) from green_taxi_trips);
+
+Answer: 2019-01-15
+
+_________________________________
+
+Question 5:
+
+select count(*)
+from green_taxi_trips
+where lpep_pickup_datetime::date = date '2019-01-01'
+and passenger_count = 2;
+
+Answer: 2: 1282 ; 3: 254
+
+_____________________________
+
+
+Question 6:
+
+
+select
+    zpu."Zone"
+FROM
+    green_taxi_zones zpu
+where
+    zpu."LocationID" = (
+                        SELECT
+                            t."DOLocationID"
+
+                        FROM
+                            green_taxi_trips t,
+                            green_taxi_zones zpu
+                        WHERE
+                            t."PULocationID" = zpu."LocationID" AND
+                            zpu."Zone" = 'Astoria'
+                        order by
+                            t.tip_amount desc
+                        LIMIT 1
+                        )
+
+Answer: Long Island City/Queens Plaza
+

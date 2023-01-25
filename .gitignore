@@ -1,0 +1,11 @@
+# Text annotations
+
+anotaciones.txt
+
+# Database directory
+
+ny_taxi_postgres_data/
+
+# CSV files
+
+*.csv
